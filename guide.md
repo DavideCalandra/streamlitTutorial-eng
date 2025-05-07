@@ -55,7 +55,7 @@ if check_connection():
 #### Metrics
 Collect payment information: *Total Amount, Max Payment, Average Payment*.
 
-SQL: ```SELECT SUM(amount) AS 'Total Amount', MAX(amount) AS 'Max Payment', AVG(amount) AS 'Average Payment' FROM payments:```
+SQL: ```SELECT SUM(amount) AS 'Total Amount', MAX(amount) AS 'Max Payment', AVG(amount) AS 'Average Payment' FROM payments;```
 
 1. Add the function ```compact_format(num)``` to *utils* for a better visualization of large numbers.
 2. Define 3 columns with ```products_tab.columns(3)```
@@ -123,7 +123,7 @@ SELECT lastName,firstName FROM employees WHERE jobTitle='VP Sales'
 4. Generate the dataframe and plot the result:
 ```
 df_staff=pd.DataFrame(staff)
-staff_tab.bar_chart(df_staff,x='jobTitle',y='customersNumber',use_container_width=True)
+staff_tab.bar_chart(df_staff,x='jobTitle',y='numEmployees',use_container_width=True)
 ```
 
 ### Customers
@@ -190,7 +190,7 @@ Outside the form, verify that, when the *submit* button is pressed, it was possi
  if submitted:
         #check that the insertion was successful or not
         if insert(insert_dict):
-            st.success("You have added this product: ",icon='✅ ')
+            st.success("You have added this product: ",icon='✅')
             st.write(insert_dict)
         else:
             st.error("Unable to add product.",icon='⚠️')
