@@ -93,7 +93,7 @@ st.date_input("Select date range:",value=(min_value,max_value),
 	min_value=min_value,max_value=max_value)
 ```
 4. Run the query with date filtering and create the dataframe
-5. heck if the datafame is empty and handle any errors
+5. Check if the datafame is empty and handle any errors
 ```
 st.warning("No data found.",icon='⚠️')
 ```
