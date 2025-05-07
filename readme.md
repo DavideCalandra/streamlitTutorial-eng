@@ -7,7 +7,7 @@ Go [here](readme_windows.md) for a complete installation guide on Windows
 
 Creation of a multi-page web application in Streamlit by interacting with a MySQL database to view and add data.
 
-```git clone https://github.com/Cryst4lDr4g0n/streamlitTutorial-eng.git```
+```git clone https://github.com/DavideCalandra/streamlitTutorial-eng.git```
 
 ## Warm up 
 * Branch *live_coding* is the starting point, branch *live_coding_complete* is the final application, branch *base* is the starting point for a new generic project.
@@ -18,7 +18,7 @@ Creation of a multi-page web application in Streamlit by interacting with a MySQ
 ## Environment
 ### For more information about the different OS and Streamlit: https://docs.streamlit.io/library/get-started/installation
 
-#### 1. Install the MySQL environment (with Docker and Docker-compose https://github.com/Cryst4lDr4g0n/mysql-docker-eng.git)
+#### 1. Install the MySQL environment (with Docker and Docker-compose https://github.com/DavideCalandra/mysql-docker-eng.git)
 #### 2. Create a new Python virtual environment (e.g. *pipenv*).
 
 Install pipenv:
