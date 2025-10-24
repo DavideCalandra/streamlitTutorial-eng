@@ -2,7 +2,7 @@
 Base branch to start a new Streamlit generic project with multipage.
 
 
-```git clone https://github.com/DavideCalandra/streamlitTutorial-eng.git```
+```git clone https://github.com/pietrobasci/streamlitTutorial-eng.git```
 
 ## Switch branches with Git
 ```
