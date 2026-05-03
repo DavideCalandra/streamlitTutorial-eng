@@ -40,7 +40,7 @@ def insert(prod_dict):
 
 def create_form():
     with st.form("New Product"):
-        st.header(":blue[Add product:]")
+        st.markdown("<h2 style='color: #1f77b4;'>Add product:</h2>", unsafe_allow_html=True)
 
         #parameters
         categories,scales,vendors=get_info()
@@ -58,7 +58,7 @@ def create_form():
         insert_dict= {"productCode":code, "productName":name,"productLine":category,"productScale":scale,"productVendor":vendor,"productDescription":description,"quantityInStock":quantity,"buyPrice":price,"MSRP":msrp}
         
         #submit button fundamental for the form
-        submitted =st.form_submit_button("Submit",type='primary')
+        submitted =st.form_submit_button("Submit")
     
     if submitted:
         #check that the insertion was successful or not

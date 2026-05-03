@@ -1,6 +1,5 @@
-import streamlit as st
+
 from utils.utils import *
-import pymysql,cryptography
 
 if __name__ == "__main__":
     st.set_page_config(
@@ -18,8 +17,8 @@ if __name__ == "__main__":
 
     col1,col2=st.columns([3,2])
     with col1:
-        st.title(":red[Live Coding] Session")
-        st.markdown("## :blue[Introduction to Databases] course")
+        st.markdown("<h1 style='color: #d62728;'>Live Coding Session</h1>", unsafe_allow_html=True)
+        st.markdown("<h2 style='color: #1f77b4;'>Introduction to Databases course</h2>", unsafe_allow_html=True)
         st.markdown("#### 🧑‍💻️ Creating a dashboard")
     with col2:
         st.image("images/polito_white.png")

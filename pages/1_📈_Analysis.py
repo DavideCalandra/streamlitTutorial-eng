@@ -27,14 +27,14 @@ def create_products_tab(products_tab):
         sort_dict = {"Ascending": "ASC", "Descending": "DESC"}
 
         # the type of the button is purely for graphic taste
-        if prod_col1.button("Show", type='primary'):
+        if prod_col1.button("Show"):
             # break the query into two strings to facilitate readability of the code: one fixed and the other that adapts to the options you choose
             query_base = "SELECT productCode AS 'code', productName AS 'name', quantityInStock AS quantity, buyPrice AS price, MSRP FROM products"
             query_sort = f"ORDER BY {sort_param} {sort_dict[sort_choice]};"
             products = execute_query(st.session_state["connection"], query_base + " " + query_sort)
             # automatic dataframe creation
             df_products = pd.DataFrame(products)
-            st.dataframe(df_products, use_container_width=True)
+            st.dataframe(df_products)
 
     with products_tab.expander("Payments", True):
         # enable filtering by date range on which to build the query
@@ -74,8 +74,14 @@ def create_staff_tab(staff_tab):
     vp_sales = execute_query(st.session_state["connection"], vp_sales_query).mappings().first()
 
     col1, col2, col3 = staff_tab.columns(3)
-    col1.markdown(f"#### :blue[PRESIDENT:] {president['firstName']} {president['lastName']}")
-    col3.markdown(f"#### :orange[VP SALES:] {vp_sales['firstName']} {vp_sales['lastName']}")
+    col1.markdown(
+        f"<h4><span style='color: #1f77b4;'>PRESIDENT:</span> {president['firstName']} {president['lastName']}</h4>",
+        unsafe_allow_html=True,
+    )
+    col3.markdown(
+        f"<h4><span style='color: #ff7f0e;'>VP SALES:</span> {vp_sales['firstName']} {vp_sales['lastName']}</h4>",
+        unsafe_allow_html=True,
+    )
 
     # order not present in the bar chart
     staff_query = "SELECT jobTitle,COUNT(*) as numEmployees FROM employees GROUP BY jobTitle ORDER BY numEmployees DESC;"
@@ -93,13 +99,13 @@ def create_customers_tab(customers_tab):
     df = pd.DataFrame(result)
     col1.subheader("Worldwide customers distribution")
     # set an equal height for the various elements can make the result more accurate
-    col1.dataframe(df, use_container_width=True, height=350)
+    col1.dataframe(df, height=350)
 
     query = "SELECT customername, state, creditLimit FROM customers WHERE country = 'USA' AND creditLimit > 100000 ORDER BY creditLimit DESC;"
     result = execute_query(st.session_state["connection"], query)
     df = pd.DataFrame(result)
     col2.subheader("Customers with higher *credit limit* in the USA")
-    col2.dataframe(df, use_container_width=True, height=350)
+    col2.dataframe(df, height=350)
 
 
 if __name__ == "__main__":
